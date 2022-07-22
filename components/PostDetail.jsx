@@ -25,28 +25,34 @@ const PostDetail = ({ post }) => {
     switch (type) {
       case 'heading-three':
         return (
-          <h3 key={index} className="text-xl font-semibold mb-4">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h3>
+          <div key={index}>
+            <h3 key={index} className="text-xl font-semibold mb-4">
+              {modifiedText.map((item, i) => (
+                <React.Fragment key={i}>{item}</React.Fragment>
+              ))}
+            </h3>
+          </div>
         )
       case 'paragraph':
         return (
-          <p key={index} className="mb-8">
-            {modifiedText.map((item, i) => (
-              // <React.Fragment key={i}>{item}</React.Fragment>
-              <Latex key={i}>{item}</Latex>
-            ))}
-          </p>
+          <div key={index}>
+            <div className="mb-6">
+              {modifiedText.map((item, i) => (
+                // <React.Fragment key={i}>{item}</React.Fragment>
+                <Latex key={i}>{item}</Latex>
+              ))}
+            </div>
+          </div>
         )
       case 'heading-four':
         return (
-          <h4 key={index} className="text-md font-semibold mb-4">
-            {modifiedText.map((item, i) => (
-              <React.Fragment key={i}>{item}</React.Fragment>
-            ))}
-          </h4>
+          <div key={index}>
+            <h4 className="text-md font-semibold mb-4">
+              {modifiedText.map((item, i) => (
+                <React.Fragment key={i}>{item}</React.Fragment>
+              ))}
+            </h4>
+          </div>
         )
       case 'image':
         return (
@@ -61,7 +67,7 @@ const PostDetail = ({ post }) => {
         )
       case 'code-block':
         return (
-          <div className='mb-8' key={index}>
+          <div className="mb-8" key={index}>
             {modifiedText.map((item, i) => (
               // <React.Fragment key={i}>{item}</React.Fragment>
               <CodeBlock text={item} key={i} theme={dracula} />
